@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华润三九企业AI应用分析报告</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; line-height: 1.8; color: #333; background: #f5f7fa; }
+        .container { max-width: 960px; margin: 40px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); overflow: hidden; }
+        header { background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%); color: #fff; padding: 48px 40px; }
+        header h1 { font-size: 28px; margin-bottom: 12px; }
+        header p { opacity: 0.9; font-size: 15px; }
+        .meta { display: flex; gap: 24px; margin-top: 20px; font-size: 13px; opacity: 0.85; }
+        main { padding: 40px; }
+        section { margin-bottom: 36px; }
+        h2 { font-size: 22px; color: #1a73e8; border-left: 4px solid #1a73e8; padding-left: 16px; margin-bottom: 20px; }
+        h3 { font-size: 17px; color: #333; margin: 24px 0 12px; }
+        p { margin-bottom: 12px; text-align: justify; }
+        table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+        th, td { border: 1px solid #e0e0e0; padding: 12px 16px; text-align: left; }
+        th { background: #f0f4ff; color: #1a73e8; font-weight: 600; }
+        tr:nth-child(even) { background: #fafbff; }
+        ul, ol { margin: 12px 0 12px 24px; }
+        li { margin-bottom: 8px; }
+        .highlight-box { background: #f0f4ff; border-left: 4px solid #1a73e8; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .highlight-box strong { color: #1a73e8; }
+        .budget-card { display: inline-block; background: #fff; border: 2px solid #1a73e8; border-radius: 10px; padding: 20px 28px; margin: 8px 12px 8px 0; min-width: 200px; }
+        .budget-card .label { font-size: 13px; color: #666; }
+        .budget-card .value { font-size: 24px; font-weight: 700; color: #1a73e8; margin-top: 4px; }
+        .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 4px 12px; border-radius: 20px; font-size: 12px; margin-right: 8px; margin-bottom: 8px; }
+        footer { background: #f5f7fa; padding: 24px 40px; text-align: center; font-size: 13px; color: #888; border-top: 1px solid #eee; }
+        @media (max-width: 640px) {
+            header, main, footer { padding: 24px 20px; }
+            header h1 { font-size: 22px; }
+            .meta { flex-direction: column; gap: 8px; }
+            .budget-card { display: block; margin: 8px 0; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>华润三九企业AI应用分析报告</h1>
+        <p>基于大模型的中成药研发价值评估解决方案</p>
+        <div class="meta">
+            <span>客户：华润三九医学研究团队</span>
+            <span>分析日期：2026年6月</span>
+            <span>版本：v1.0</span>
+        </div>
+    </header>
+
+    <main>
+        <!-- 一、需求概述 -->
+        <section>
+            <h2>一、需求概述</h2>
+            <p>华润三九医学研究团队希望借助大模型技术，针对<strong>呼吸、消化等重点管线</strong>，系统评估中成药在特定疾病中的研发价值，最终交付一份可直接用于决策的<strong>成品分析报告</strong>。</p>
+            <div class="highlight-box">
+                <strong>核心诉求：</strong>"我们最后想要的是一份成品的报告" —— 交付物导向，非技术过程导向。<br>
+                <strong>预算态度：</strong>"预算还好，主要是看最后能得到一个什么样的结果" —— 关注价值产出，非成本控制。
+            </div>
+            <h3>关键需求维度</h3>
+            <table>
+                <tr><th>维度</th><th>具体内容</th></tr>
+                <tr><td>目标管线</td><td>呼吸系统、消化系统等重点中成药管线</td></tr>
+                <tr><td>评估内容</td><td>适应症潜力、临床价值、竞争格局、研发优先级</td></tr>
+                <tr><td>数据来源</td><td>知网、PubMed、药智网、医药魔方、阿里健康、氢离子等多平台</td></tr>
+                <tr><td>交付形式</td><td>结构化分析报告（含结论、洞察、建议），非纯数据罗列</td></tr>
+                <tr><td>持续能力</td><td>支持后续新增管线、新增数据源、迭代优化</td></tr>
+            </table>
+        </section>
+
+        <!-- 二、技术方案 -->
+        <section>
+            <h2>二、技术方案与实施路径</h2>
+            <p>采用<strong>"轻量试跑 → 验证效果 → 闭环升级"</strong>的阶梯式策略，降低客户决策门槛，同时确保最终交付质量。</p>
+
+            <h3>阶段一：轻量级数据交叉分析（试跑验证）</h3>
+            <ul>
+                <li>选取 <strong>2~3个核心数据源</strong>（如知网 + 药智网 + 医药魔方）进行数据汇总与交叉分析</li>
+                <li>使用AI分析工具完成初步数据清洗、关联挖掘与报告生成</li>
+                <li>输出 <strong>1份结构化试点报告</strong>，涵盖疾病分布、文献热度、竞品分析、中成药关联度等维度</li>
+                <li>周期：1~2周 | 成本：<strong>39元/月</strong></li>
+            </ul>
+
+            <h3>阶段二：闭环AI评估系统（高价值交付）</h3>
+            <ul>
+                <li>配置定制化 <strong>Agent管理后台</strong>，实现全流程自动化</li>
+                <li>自动采集多平台异构数据 → 清洗标准化 → AI模型评估打分 → 自动生成报告</li>
+                <li>支持新增管线、新增数据源、持续迭代优化</li>
+                <li>需专业医学背景人员配合，确保分析逻辑合理、报告可读性强</li>
+                <li>首年费用：<strong>10万元起</strong>，后续按年续费</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>技术难点说明：</strong><br>
+                ① 多平台数据结构不一致，需定制爬虫/接口与清洗映射规则<br>
+                ② AI模型需注入"医学+中成药+研发价值评估"领域知识，避免通用模型黑箱问题<br>
+                ③ 数据获取授权：阿里系数据源可信度高可优先接入；知网/PubMed等需确认接口可用性
+            </div>
+        </section>
+
+        <!-- 三、预算结构 -->
+        <section>
+            <h2>三、预算结构</h2>
+            <div style="margin: 20px 0;">
+                <div class="budget-card">
+                    <div class="label">阶段一 · 试跑验证</div>
+                    <div class="value">39元/月</div>
+                </div>
+                <div class="budget-card">
+                    <div class="label">阶段二 · 闭环系统（首年）</div>
+                    <div class="value">10万元起</div>
+                </div>
+            </div>
+            <p>附加成本（数据接口开发、模型训练、医学专家协同、报告模板设计等）可包含在10万内或另行评估。客户明确表示若持续产出高质量报告、支持后续管线评估，预算可进一步提高。</p>
+        </section>
+
+        <!-- 四、客户顾虑与应对 -->
+        <section>
+            <h2>四、客户顾虑与应对策略</h2>
+            <table>
+                <tr><th>客户顾虑</th><th>应对策略</th></tr>
+                <tr>
+                    <td>多平台数据分散，是否能集成？阿里健康、氢离子等数据是否可获取？</td>
+                    <td>列出可接入平台清单及接口方案；优先接入阿里系可信数据源；明确需额外采购或授权的数据项</td>
+                </tr>
+                <tr>
+                    <td>"我们也不知道AI能做到啥程度"，担心AI无法满足医学评估深度</td>
+                    <td>强调"医学+AI"双轮驱动；提供试跑报告验证效果；引入医学专家协同机制</td>
+                </tr>
+                <tr>
+                    <td>闭环系统技术门槛高，内部缺乏相关技术能力</td>
+                    <td>供应商提供完整解决方案（工具+服务+定制开发）；分阶段交付降低复杂度</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- 五、推荐行动路径 -->
+        <section>
+            <h2>五、推荐行动路径</h2>
+            <ol>
+                <li><strong>立即启动39元/月试跑方案</strong>：选取2~3个数据源快速交付1份结构化报告，建立客户信任</li>
+                <li><strong>明确数据接入路径</strong>：列出可接入平台清单（知网、药智网、医药魔方、阿里健康等），说明数据获取方式与授权要求</li>
+                <li><strong>强调"医学+AI"双轮驱动</strong>：避免纯技术方案，突出医学洞察价值；主动提出医学专家协同机制</li>
+                <li><strong>提供阶梯式报价</strong>：试跑 → 闭环系统 → 长期合作，降低客户决策压力</li>
+                <li><strong>按管线分阶段交付</strong>：先做消化系统，再做呼吸系统；提供"评估+报告+建议+后续优化"全链条服务</li>
+            </ol>
+        </section>
+
+        <!-- 六、关键结论 -->
+        <section>
+            <h2>六、关键结论</h2>
+            <div class="highlight-box">
+                <strong>客户画像：</strong>医学研究背景，重视结果交付，预算灵活，倾向"先试跑再投入"<br>
+                <strong>技术方案：</strong>从"轻量级数据交叉分析"切入，逐步升级为"闭环AI评估系统"<br>
+                <strong>交付物：</strong>一份结构化、可读性强、有医学洞察的报告，非纯数据<br>
+                <strong>风险控制：</strong>强调"需医学专家配合"，避免AI"黑箱"导致报告不可信<br>
+                <strong>合作模式：</strong>可提供"工具+服务+定制开发"组合，满足不同阶段需求
+            </div>
+            <h3>对话关键语句提炼</h3>
+            <ul>
+                <li>"我们最后想要的是一份成品的报告" → 交付物导向</li>
+                <li>"预算还好，主要是看最后能得到一个什么样的结果" → 价值产出优先</li>
+                <li>"用这个的话，应该没法提取到这些网站的大量数据吧" → 数据获取能力存疑</li>
+                <li>"需要配置Agent管理后台进行定制，就要上升到10万/年" → 明确区分轻量分析与系统化闭环的成本差异</li>
+                <li>"阿里肯定没问题，主要是方法学方面" → 阿里系数据源信任度高，可优先接入</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>本报告由钉钉悟空AI团队生成 · 仅供华润三九内部参考 · 2026年6月</p>
+    </footer>
+</div>
+</body>
+</html>
