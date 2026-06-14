@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华润三九AI应用需求分析与解决方案</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; line-height: 1.8; color: #333; background: #f5f7fa; }
+        .container { max-width: 960px; margin: 40px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); overflow: hidden; }
+        header { background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%); color: #fff; padding: 48px 40px; }
+        header h1 { font-size: 28px; margin-bottom: 12px; }
+        header p { opacity: 0.9; font-size: 15px; }
+        .meta { display: flex; gap: 24px; margin-top: 20px; font-size: 13px; opacity: 0.85; }
+        main { padding: 40px; }
+        section { margin-bottom: 36px; }
+        h2 { font-size: 22px; color: #0d47a1; border-left: 4px solid #0d47a1; padding-left: 16px; margin-bottom: 20px; }
+        h3 { font-size: 17px; color: #333; margin: 24px 0 12px; }
+        p { margin-bottom: 12px; text-align: justify; }
+        table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+        th, td { border: 1px solid #e0e0e0; padding: 12px 16px; text-align: left; }
+        th { background: #e3f2fd; color: #0d47a1; font-weight: 600; }
+        tr:nth-child(even) { background: #f5f9ff; }
+        ul, ol { margin: 12px 0 12px 24px; }
+        li { margin-bottom: 8px; }
+        .highlight-box { background: #e3f2fd; border-left: 4px solid #0d47a1; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .highlight-box strong { color: #0d47a1; }
+        .cost-card { display: inline-block; background: #fff; border: 2px solid #0d47a1; border-radius: 10px; padding: 20px 28px; margin: 8px 12px 8px 0; min-width: 180px; }
+        .cost-card .label { font-size: 13px; color: #666; }
+        .cost-card .value { font-size: 24px; font-weight: 700; color: #0d47a1; margin-top: 4px; }
+        .tag { display: inline-block; background: #e3f2fd; color: #0d47a1; padding: 4px 12px; border-radius: 20px; font-size: 12px; margin-right: 8px; margin-bottom: 8px; }
+        footer { background: #f5f7fa; padding: 24px 40px; text-align: center; font-size: 13px; color: #888; border-top: 1px solid #eee; }
+        @media (max-width: 640px) {
+            header, main, footer { padding: 24px 20px; }
+            header h1 { font-size: 22px; }
+            .meta { flex-direction: column; gap: 8px; }
+            .cost-card { display: block; margin: 8px 0; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>华润三九AI应用需求分析与解决方案</h1>
+        <p>基于大模型的中成药研发价值评估系统 · 完整技术方案</p>
+        <div class="meta">
+            <span>客户：华润三九医学研究团队</span>
+            <span>编制日期：2026年6月</span>
+            <span>版本：v1.0</span>
+        </div>
+    </header>
+
+    <main>
+        <!-- 一、需求深度分析 -->
+        <section>
+            <h2>一、需求深度分析</h2>
+            <h3>1.1 业务目标</h3>
+            <p>华润三九医学研究团队需建立一套<strong>自动化中成药研发价值评估体系</strong>，针对呼吸、消化等重点管线，从多维度数据源自动采集、清洗、分析并生成结构化报告，支撑研发决策。</p>
+
+            <h3>1.2 核心需求拆解</h3>
+            <table>
+                <tr><th>需求类别</th><th>具体内容</th><th>优先级</th></tr>
+                <tr><td>多源数据集成</td><td>对接知网、PubMed、药智网、医药魔方、阿里健康、氢离子等专业平台数据</td><td>P0</td></tr>
+                <tr><td>已有系统API对接</td><td>与客户内部研发管理系统、文献库等现有系统API接口打通</td><td>P0</td></tr>
+                <tr><td>AI评估模型</td><td>构建懂医学+中成药+研发价值的领域模型，输出适应症潜力/临床价值/竞争格局评分</td><td>P0</td></tr>
+                <tr><td>自动化报告生成</td><td>按预设模板自动生成含结论、洞察、建议的结构化报告</td><td>P0</td></tr>
+                <tr><td>Agent管理后台</td><td>可视化配置数据源、调整评估参数、查看任务进度、导出报告</td><td>P1</td></tr>
+                <tr><td>持续迭代能力</td><td>支持新增管线、新增数据源、模型优化升级</td><td>P1</td></tr>
+            </table>
+
+            <h3>1.3 技术难点识别</h3>
+            <div class="highlight-box">
+                <strong>数据层挑战：</strong><br>
+                ① 6+外部数据源结构异构（API/爬虫/数据库），需定制采集策略与清洗规则<br>
+                ② 客户已有系统API接口文档获取、鉴权方式确认、联调环境搭建<br>
+                ③ 数据更新频率不一致（实时/日更/周更），需设计增量同步机制<br><br>
+                <strong>模型层挑战：</strong><br>
+                ④ 通用大模型缺乏中成药研发领域知识，需注入专业语料微调<br>
+                ⑤ 评估指标体系需与医学专家共同定义，避免AI"黑箱"输出<br><br>
+                <strong>工程层挑战：</strong><br>
+                ⑥ Agent后台需支持多租户、权限控制、任务队列、日志审计等企业级特性
+            </div>
+        </section>
+
+        <!-- 二、整体解决方案架构 -->
+        <section>
+            <h2>二、整体解决方案架构</h2>
+            <h3>2.1 系统架构图</h3>
+            <div class="highlight-box">
+                <strong>四层架构设计：</strong><br><br>
+                <strong>【数据采集层】</strong><br>
+                ├─ 外部数据源适配器：知网/PubMed/药智网/医药魔方/阿里健康/氢离子<br>
+                ├─ 内部系统API网关：客户研发管理系统/文献库/ERP等已有接口<br>
+                └─ 统一数据接入引擎：定时调度 + 增量同步 + 异常重试<br><br>
+                <strong>【数据处理层】</strong><br>
+                ├─ 数据清洗管道：去重/标准化/实体抽取/关系映射<br>
+                ├─ 知识图谱构建：疾病-药品-文献-竞品四维关联<br>
+                └─ 特征工程：提取研发价值评估所需结构化特征<br><br>
+                <strong>【AI评估层】</strong><br>
+                ├─ 领域微调模型：注入中成药研发语料 + 医学专家标注数据<br>
+                ├─ 多维评分引擎：适应症潜力/临床价值/竞争格局/研发优先级<br>
+                └─ 可解释性模块：输出评分依据与关键证据引用<br><br>
+                <strong>【应用服务层】</strong><br>
+                ├─ Agent管理后台：数据源配置/任务编排/报告预览/权限管理<br>
+                ├─ 报告生成引擎：模板渲染 + 图表嵌入 + PDF导出<br>
+                └─ API开放接口：供客户其他系统调用评估结果
+            </div>
+
+            <h3>2.2 数据源对接方案</h3>
+            <table>
+                <tr><th>数据源</th><th>对接方式</th><th>数据类型</th><th>更新频率</th><th>预估人天</th></tr>
+                <tr><td>知网（CNKI）</td><td>官方API + 授权爬取</td><td>学术论文/专利/标准</td><td>日更</td><td>4人天</td></tr>
+                <tr><td>PubMed</td><td>NCBI E-utilities API</td><td>国际文献/临床试验</td><td>实时</td><td>3人天</td></tr>
+                <tr><td>药智网</td><td>企业API合作</td><td>药品注册/审评/市场</td><td>日更</td><td>4人天</td></tr>
+                <tr><td>医药魔方</td><td>API + 数据订阅</td><td>研发管线/投融资/BD</td><td>周更</td><td>3人天</td></tr>
+                <tr><td>阿里健康</td><td>开放平台API</td><td>消费端用药数据/舆情</td><td>实时</td><td>3人天</td></tr>
+                <tr><td>氢离子</td><td>API对接确认中</td><td>待确认</td><td>待确认</td><td>3人天</td></tr>
+                <tr><td>客户已有系统API</td><td>接口文档获取+联调</td><td>内部研发/文献/ERP数据</td><td>依系统而定</td><td>6人天</td></tr>
+            </table>
+        </section>
+
+        <!-- 三、成本与周期评估 -->
+        <section>
+            <h2>三、成本与周期评估（2500元/人天）</h2>
+            <h3>3.1 工作量分解</h3>
+            <table>
+                <tr><th>工作阶段</th><th>工作内容</th><th>人天</th><th>费用（元）</th></tr>
+                <tr><td rowspan="3">数据接入</td><td>6个外部数据源适配器开发</td><td>20</td><td>50,000</td></tr>
+                <tr><td>客户已有系统API对接（含联调）</td><td>6</td><td>15,000</td></tr>
+                <tr><td>统一数据接入引擎 + 增量同步</td><td>5</td><td>12,500</td></tr>
+                <tr><td rowspan="2">数据处理</td><td>清洗管道 + 知识图谱构建</td><td>8</td><td>20,000</td></tr>
+                <tr><td>特征工程 + 数据质量校验</td><td>4</td><td>10,000</td></tr>
+                <tr><td rowspan="2">AI模型</td><td>领域语料收集 + 模型微调</td><td>12</td><td>30,000</td></tr>
+                <tr><td>评估指标体系设计 + 专家协同标注</td><td>6</td><td>15,000</td></tr>
+                <tr><td rowspan="2">应用开发</td><td>Agent管理后台（前端+后端）</td><td>15</td><td>37,500</td></tr>
+                <tr><td>报告生成引擎 + API开放接口</td><td>5</td><td>12,500</td></tr>
+                <tr><td>测试验收</td><td>单元测试+集成测试+UAT</td><td>6</td><td>15,000</td></tr>
+                <tr><td>部署上线</td><td>环境搭建+数据初始化+培训</td><td>3</td><td>7,500</td></tr>
+                <tr><td colspan="2"><strong>合计</strong></td><td><strong>90人天</strong></td><td><strong>225,000</strong></td></tr>
+            </table>
+
+            <h3>3.2 实施周期</h3>
+            <div style="margin: 20px 0;">
+                <div class="cost-card">
+                    <div class="label">总工作量</div>
+                    <div class="value">90人天</div>
+                </div>
+                <div class="cost-card">
+                    <div class="label">总费用</div>
+                    <div class="value">22.5万元</div>
+                </div>
+                <div class="cost-card">
+                    <div class="label">预计周期</div>
+                    <div class="value">3~4个月</div>
+                </div>
+            </div>
+            <p><strong>说明：</strong>按3人并行开发计算，90人天 ≈ 30个自然工作日 ≈ 6~7周纯开发时间；加上需求确认、医学专家协同、UAT验收等环节，整体周期约3~4个月。医学专家协同费用另计（按实际投入人天协商）。</p>
+        </section>
+
+        <!-- 四、风险与应对 -->
+        <section>
+            <h2>四、风险识别与应对策略</h2>
+            <table>
+                <tr><th>风险项</th><th>影响等级</th><th>应对措施</th></tr>
+                <tr><td>部分数据源API无法获取或授权受限</td><td>高</td><td>提前2周启动数据源商务对接；准备替代数据源方案；明确告知客户哪些数据源不可用</td></tr>
+                <tr><td>客户已有系统API文档缺失或接口不稳定</td><td>高</td><td>项目启动即安排专人对接客户IT部门；预留额外联调缓冲人天；提供接口适配中间件降低耦合</td></tr>
+                <tr><td>AI模型评估准确度未达医学专家预期</td><td>中</td><td>采用"专家标注+模型迭代"闭环；设置人工复核环节；首版报告明确标注置信度</td></tr>
+                <tr><td>数据更新延迟导致报告时效性不足</td><td>中</td><td>设计增量同步+缓存刷新机制；报告中标注数据截止时间；支持手动触发即时更新</td></tr>
+                <tr><td>项目周期超出预期</td><td>低</td><td>分阶段交付：先完成核心数据源+基础评估→再扩展数据源+高级功能；每阶段独立验收</td></tr>
+            </table>
+        </section>
+
+        <!-- 五、下一步行动 -->
+        <section>
+            <h2>五、下一步行动建议</h2>
+            <ol>
+                <li><strong>签署技术方案确认书</strong>：双方确认本方案范围、成本、周期后进入实施阶段</li>
+                <li><strong>启动数据源商务对接</strong>：立即联系知网/药智网/医药魔方等数据源方确认API可用性与授权费用</li>
+                <li><strong>客户IT接口对接</strong>：安排专人与客户IT部门对接已有系统API文档、测试环境、鉴权方式</li>
+                <li><strong>医学专家协同机制</strong>：确定参与评估指标定义的医学专家名单、投入时间、协作方式</li>
+                <li><strong>项目 kickoff 会议</strong>：明确里程碑节点、沟通机制、验收标准后正式启动开发</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer>
+        <p>本报告由钉钉悟空AI团队编制 · 仅供华润三九内部参考 · 2026年6月</p>
+    </footer>
+</div>
+</body>
+</html>
