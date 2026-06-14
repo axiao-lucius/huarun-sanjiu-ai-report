@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华润三九AI应用交付实施计划书</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; line-height: 1.8; color: #333; background: #f5f7fa; }
+        .container { max-width: 960px; margin: 40px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); overflow: hidden; }
+        header { background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%); color: #fff; padding: 48px 40px; }
+        header h1 { font-size: 28px; margin-bottom: 12px; }
+        header p { opacity: 0.9; font-size: 15px; }
+        .meta { display: flex; gap: 24px; margin-top: 20px; font-size: 13px; opacity: 0.85; }
+        main { padding: 40px; }
+        section { margin-bottom: 36px; }
+        h2 { font-size: 22px; color: #1b5e20; border-left: 4px solid #1b5e20; padding-left: 16px; margin-bottom: 20px; }
+        h3 { font-size: 17px; color: #333; margin: 24px 0 12px; }
+        p { margin-bottom: 12px; text-align: justify; }
+        table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+        th, td { border: 1px solid #e0e0e0; padding: 12px 16px; text-align: left; }
+        th { background: #e8f5e9; color: #1b5e20; font-weight: 600; }
+        tr:nth-child(even) { background: #f1f8e9; }
+        ul, ol { margin: 12px 0 12px 24px; }
+        li { margin-bottom: 8px; }
+        .highlight-box { background: #e8f5e9; border-left: 4px solid #1b5e20; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .highlight-box strong { color: #1b5e20; }
+        .milestone { display: inline-block; background: #fff; border: 2px solid #1b5e20; border-radius: 10px; padding: 16px 24px; margin: 8px 12px 8px 0; min-width: 160px; }
+        .milestone .phase { font-size: 12px; color: #666; text-transform: uppercase; }
+        .milestone .title { font-size: 15px; font-weight: 600; color: #1b5e20; margin-top: 4px; }
+        .milestone .time { font-size: 13px; color: #888; margin-top: 4px; }
+        footer { background: #f5f7fa; padding: 24px 40px; text-align: center; font-size: 13px; color: #888; border-top: 1px solid #eee; }
+        @media (max-width: 640px) {
+            header, main, footer { padding: 24px 20px; }
+            header h1 { font-size: 22px; }
+            .meta { flex-direction: column; gap: 8px; }
+            .milestone { display: block; margin: 8px 0; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>华润三九AI应用交付实施计划书</h1>
+        <p>中成药研发价值评估系统 · 分阶段交付路线图</p>
+        <div class="meta">
+            <span>客户：华润三九医学研究团队</span>
+            <span>编制日期：2026年6月</span>
+            <span>版本：v1.0</span>
+        </div>
+    </header>
+
+    <main>
+        <!-- 一、项目概述 -->
+        <section>
+            <h2>一、项目概述</h2>
+            <p>本项目旨在为华润三九医学研究团队构建一套<strong>自动化中成药研发价值评估系统</strong>，通过对接多源专业数据与客户已有系统API，结合领域微调AI模型，实现从数据采集→分析评估→报告生成的全流程自动化。</p>
+            <div class="highlight-box">
+                <strong>核心交付物：</strong><br>
+                ① 多源数据接入引擎（6个外部数据源 + 客户内部系统API）<br>
+                ② AI评估模型（中成药研发价值多维评分）<br>
+                ③ Agent管理后台（可视化配置/任务编排/报告预览）<br>
+                ④ 自动化报告生成引擎（模板化输出+PDF导出）<br>
+                ⑤ 完整技术文档与操作培训
+            </div>
+        </section>
+
+        <!-- 二、实施阶段规划 -->
+        <section>
+            <h2>二、实施阶段规划（总周期3~4个月）</h2>
+
+            <h3>阶段一：需求确认与数据源对接（第1~4周）</h3>
+            <table>
+                <tr><th>工作项</th><th>产出物</th><th>人天</th><th>费用（元）</th></tr>
+                <tr><td>需求细化确认会（含医学专家参与）</td><td>需求规格说明书V1.0</td><td>3</td><td>7,500</td></tr>
+                <tr><td>6个外部数据源商务对接+API测试</td><td>数据源接入可行性报告</td><td>10</td><td>25,000</td></tr>
+                <tr><td>客户已有系统API文档获取+联调环境搭建</td><td>内部接口对接方案</td><td>5</td><td>12,500</td></tr>
+                <tr><td>评估指标体系初稿设计（医学专家协同）</td><td>评估指标框架V0.9</td><td>4</td><td>10,000</td></tr>
+                <tr><td colspan="2"><strong>阶段一小计</strong></td><td><strong>22人天</strong></td><td><strong>55,000</strong></td></tr>
+            </table>
+            <div class="highlight-box">
+                <strong>里程碑M1：</strong>完成所有数据源可行性验证 + 评估指标框架确认 → 进入开发阶段<br>
+                <strong>风险缓冲：</strong>若某数据源API不可用，本阶段即确定替代方案，避免后期返工
+            </div>
+
+            <h3>阶段二：数据接入与处理管道开发（第5~8周）</h3>
+            <table>
+                <tr><th>工作项</th><th>产出物</th><th>人天</th><th>费用（元）</th></tr>
+                <tr><td>6个外部数据源适配器开发</td><td>数据采集模块（6个）</td><td>15</td><td>37,500</td></tr>
+                <tr><td>客户内部系统API对接开发</td><td>内部数据接入模块</td><td>5</td><td>12,500</td></tr>
+                <tr><td>统一数据接入引擎 + 增量同步机制</td><td>调度引擎 + 监控面板</td><td>5</td><td>12,500</td></tr>
+                <tr><td>数据清洗管道 + 知识图谱构建</td><td>清洗规则集 + 图谱Schema</td><td>8</td><td>20,000</td></tr>
+                <tr><td>特征工程 + 数据质量校验</td><td>特征字典 + 质检报告</td><td>4</td><td>10,000</td></tr>
+                <tr><td colspan="2"><strong>阶段二小计</strong></td><td><strong>37人天</strong></td><td><strong>92,500</strong></td></tr>
+            </table>
+            <div class="highlight-box">
+                <strong>里程碑M2：</strong>所有数据源稳定接入 + 清洗后数据可查询 → 进入AI模型训练阶段<br>
+                <strong>验收标准：</strong>每个数据源连续7天无异常中断；数据质量抽检合格率≥95%
+            </div>
+
+            <h3>阶段三：AI模型训练与评估引擎开发（第9~12周）</h3>
+            <table>
+                <tr><th>工作项</th><th>产出物</th><th>人天</th><th>费用（元）</th></tr>
+                <tr><td>领域语料收集 + 数据标注（医学专家协同）</td><td>标注数据集（≥500条）</td><td>8</td><td>20,000</td></tr>
+                <tr><td>基座模型选型 + 领域微调训练</td><td>微调模型V1.0</td><td>8</td><td>20,000</td></tr>
+                <tr><td>多维评分引擎开发（适应症/临床/竞争/优先级）</td><td>评分API + 可解释性模块</td><td>6</td><td>15,000</td></tr>
+                <tr><td>模型效果验证 + 专家复核迭代</td><td>模型评估报告V1.0</td><td>4</td><td>10,000</td></tr>
+                <tr><td colspan="2"><strong>阶段三小计</strong></td><td><strong>26人天</strong></td><td><strong>65,000</strong></td></tr>
+            </table>
+            <div class="highlight-box">
+                <strong>里程碑M3：</strong>模型评分与医学专家人工评估一致性≥80% → 进入应用开发阶段<br>
+                <strong>说明：</strong>医学专家协同人天另计（按实际投入协商），此处仅含技术侧工作量
+            </div>
+
+            <h3>阶段四：应用开发与集成测试（第13~16周）</h3>
+            <table>
+                <tr><th>工作项</th><th>产出物</th><th>人天</th><th>费用（元）</th></tr>
+                <tr><td>Agent管理后台前端开发</td><td>Web管理界面</td><td>8</td><td>20,000</td></tr>
+                <tr><td>Agent管理后台后端开发</td><td>RESTful API + 权限系统</td><td>7</td><td>17,500</td></tr>
+                <tr><td>报告生成引擎 + 模板设计</td><td>报告模板 + PDF导出功能</td><td>4</td><td>10,000</td></tr>
+                <tr><td>API开放接口开发</td><td>对外调用接口文档 + SDK</td><td>3</td><td>7,500</td></tr>
+                <tr><td>单元测试 + 集成测试</td><td>测试报告 + Bug修复</td><td>5</td><td>12,500</td></tr>
+                <tr><td>UAT用户验收测试 + 问题修复</td><td>验收签字确认单</td><td>3</td><td>7,500</td></tr>
+                <tr><td colspan="2"><strong>阶段四小计</strong></td><td><strong>30人天</strong></td><td><strong>75,000</strong></td></tr>
+            </table>
+            <div class="highlight-box">
+                <strong>里程碑M4：</strong>UAT验收通过 → 进入部署上线阶段<br>
+                <strong>验收标准：</strong>所有P0/P1级Bug清零；P2级Bug≤3个且有明确修复计划
+            </div>
+
+            <h3>阶段五：部署上线与培训交付（第17~18周）</h3>
+            <table>
+                <tr><th>工作项</th><th>产出物</th><th>人天</th><th>费用（元）</th></tr>
+                <tr><td>生产环境部署 + 数据初始化</td><td>上线确认单</td><td>2</td><td>5,000</td></tr>
+                <tr><td>操作培训（管理员+普通用户两场）</td><td>培训录像 + 操作手册</td><td>2</td><td>5,000</td></tr>
+                <tr><td>上线后1周驻场支持</td><td>问题响应记录</td><td>3</td><td>7,500</td></tr>
+                <tr><td>项目总结 + 运维交接</td><td>运维手册 + 知识库</td><td>1</td><td>2,500</td></tr>
+                <tr><td colspan="2"><strong>阶段五小计</strong></td><td><strong>8人天</strong></td><td><strong>20,000</strong></td></tr>
+            </table>
+        </section>
+
+        <!-- 三、成本汇总 -->
+        <section>
+            <h2>三、成本汇总</h2>
+            <table>
+                <tr><th>阶段</th><th>周期</th><th>人天</th><th>费用（元）</th></tr>
+                <tr><td>阶段一：需求确认与数据源对接</td><td>第1~4周</td><td>22</td><td>55,000</td></tr>
+                <tr><td>阶段二：数据接入与处理管道</td><td>第5~8周</td><td>37</td><td>92,500</td></tr>
+                <tr><td>阶段三：AI模型训练与评估引擎</td><td>第9~12周</td><td>26</td><td>65,000</td></tr>
+                <tr><td>阶段四：应用开发与集成测试</td><td>第13~16周</td><td>30</td><td>75,000</td></tr>
+                <tr><td>阶段五：部署上线与培训交付</td><td>第17~18周</td><td>8</td><td>20,000</td></tr>
+                <tr><td colspan="2"><strong>合计</strong></td><td><strong>123人天</strong></td><td><strong>307,500</strong></td></tr>
+            </table>
+            <div class="highlight-box">
+                <strong>费用说明：</strong><br>
+                ① 以上按<strong>2500元/人天</strong>核算，总计123人天 = <strong>30.75万元</strong><br>
+                ② 医学专家协同费用另计（按实际投入人天协商，建议预留3~5万元预算）<br>
+                ③ 数据源API授权费/订阅费由客户直接与数据源方结算（预估2~5万元/年）<br>
+                ④ 服务器资源费（云主机+存储+GPU）按实际用量另行计费（预估1~2万元/年）<br>
+                 首年维保免费；次年起按合同总额15%/年收取维保费
+            </div>
+        </section>
+
+        <!-- 四、关键里程碑时间线 -->
+        <section>
+            <h2>四、关键里程碑时间线</h2>
+            <div style="margin: 20px 0;">
+                <div class="milestone">
+                    <div class="phase">Milestone 1</div>
+                    <div class="title">数据源可行性确认</div>
+                    <div class="time">第4周末</div>
+                </div>
+                <div class="milestone">
+                    <div class="phase">Milestone 2</div>
+                    <div class="title">数据管道就绪</div>
+                    <div class="time">第8周末</div>
+                </div>
+                <div class="milestone">
+                    <div class="phase">Milestone 3</div>
+                    <div class="title">AI模型达标</div>
+                    <div class="time">第12周末</div>
+                </div>
+                <div class="milestone">
+                    <div class="phase">Milestone 4</div>
+                    <div class="title">UAT验收通过</div>
+                    <div class="time">第16周末</div>
+                </div>
+                <div class="milestone">
+                    <div class="phase">Final</div>
+                    <div class="title">正式上线</div>
+                    <div class="time">第18周末</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 五、团队协作机制 -->
+        <section>
+            <h2>五、团队协作与沟通机制</h2>
+            <table>
+                <tr><th>沟通形式</th><th>频率</th><th>参与方</th><th>产出</th></tr>
+                <tr><td>项目站会</td><td>每日（15分钟）</td><td>开发团队内部</td><td>进度同步 + 阻塞问题暴露</td></tr>
+                <tr><td>周报</td><td>每周五</td><td>项目组 + 客户对接人</td><td>本周进展 + 下周计划 + 风险预警</td></tr>
+                <tr><td>阶段评审会</td><td>每个里程碑节点</td><td>项目组 + 客户负责人 + 医学专家</td><td>阶段成果演示 + 验收确认</td></tr>
+                <tr><td>紧急问题响应</td><td>随时</td><td>技术负责人 + 客户对接人</td><td>2小时内响应 + 24小时内给出解决方案</td></tr>
+            </table>
+        </section>
+
+        <!-- 六、交付物清单 -->
+        <section>
+            <h2>六、最终交付物清单</h2>
+            <ol>
+                <li><strong>可运行系统：</strong>部署于客户指定环境的完整AI评估系统</li>
+                <li><strong>Agent管理后台：</strong>Web端可视化管理界面（含账号权限体系）</li>
+                <li><strong>技术文档：</strong>系统架构文档 + API接口文档 + 数据库设计文档 + 部署运维手册</li>
+                <li><strong>用户手册：</strong>管理员操作手册 + 普通用户使用指南</li>
+                <li><strong>培训材料：</strong>两场培训录像 + PPT课件 + 常见问题FAQ</li>
+                <li><strong>源代码：</strong>完整工程代码（含注释）+ 构建脚本 + 依赖清单</li>
+                <li><strong>测试报告：</strong>单元测试报告 + 集成测试报告 + UAT验收报告</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer>
+        <p>本计划书由钉钉悟空AI团队编制 · 仅供华润三九内部参考 · 2026年6月</p>
+    </footer>
+</div>
+</body>
+</html>
